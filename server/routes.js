@@ -7,10 +7,6 @@ var Staff = require(__dirname + '/models/staff');
 var mongojs = require('mongojs');
 var db = mongojs('contactlist', ['contactlist']);
 
-var testVar = 'the dunya';
-var testVar2 = 'the dunya 2';
-
-
 module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
 
 	/////  CONTACTS  /////
