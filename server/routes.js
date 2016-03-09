@@ -7,6 +7,8 @@ var Staff = require(__dirname + '/models/staff');
 var mongojs = require('mongojs');
 var db = mongojs('contactlist', ['contactlist']);
 
+var testVar = 'the dunya';
+
 
 module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
 
@@ -52,7 +54,7 @@ module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
         console.log("YOYOYO");
 		res.json(req.staff);
 	});
-    
+
     app.post("/api/driversignin", passport.authenticate('local-driver'), function(req, res){
         console.log("YOYOYO");
 		res.json(req.driver);
@@ -477,9 +479,9 @@ module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
         done(null, user);
     });
 
-    
+
 //THIS IS THE STAFF SIGN IN CONDITIONS///
-    
+
     passport.use('local-admin', new localStrategy(function(username, password, done){
 	    Staff.findOne({username: username, password: password}, function(err, staff){
 	        if(staff){return done(null, staff);}
@@ -493,8 +495,8 @@ module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
     passport.deserializeUser(function(staff, done) {
         done(null, staff);
     });
-    
-    
+
+
     // THIS IS THE Driver SIGN IN CONDITIONS//
 
     passport.use('local-driver', new localStrategy(function(username, password, done){
@@ -510,7 +512,7 @@ module.exports = function(app, Quote, Token, User, Contact, needle, rest) {
     passport.deserializeUser(function(driver, done) {
         done(null, driver);
     });
-    
+
 
 
 }; // EXPORT
