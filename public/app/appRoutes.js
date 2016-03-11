@@ -202,31 +202,31 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
             controller  : 'DashStaffCtrl',
             action      : 'admin-staff'
         })
-    
+
         .when('/contractor-home', {
             templateUrl : 'app/components/contractors/contractor-view.html',
             controller  : 'DashDaccountCtrl',
             action: "contractor-home"
         })
-    
+
         .when('/contractor-earnings', {
             templateUrl : 'app/components/contractors/contractor-view.html',
             controller  : 'DashDearningsCtrl',
             action: "contractor-earnings"
         })
-    
+
         .when('/driver-login', {
             templateUrl : 'app/components/home/driver-login.html',
             controller  : 'DriverSigninCtrl',
             //action    : 'dash-allmessages'
         })
-    
+
         .when('/website', {
             templateUrl : 'app/components/home/con-web/index.html',
             controller  : 'WebsiteCtrl',
             //action    : 'dash-allmessages'
         })
-    
+
         .when('/status-update', {
             templateUrl : 'app/components/dash/dash-view.html',
             controller  : 'DashStatusCtrl',

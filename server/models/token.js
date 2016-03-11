@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var tokenSchema = mongoose.Schema({
-    access		: String,
-    refresh      : String
+    uid		: String,
+    token      : String
 });
 
 // create the model for users and expose it to our app

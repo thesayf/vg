@@ -30,14 +30,14 @@ app.controller('DashSignupCtrl', function($scope, $http, $rootScope, validation)
     $scope.user = {};
     $scope.user.businesstype = 'Business Type';
     $scope.bizType = {
-    availableOptions: [
-      {name: 'Business Type', dis: true},
-      {name: 'Removal Company'},
-      {name: 'Courier'},
-      {name: 'Clearance'},
-      {name: 'Logistics'}
-    ],
-   };
+        availableOptions: [
+          {name: 'Business Type', dis: true},
+          {name: 'Removal Company'},
+          {name: 'Courier'},
+          {name: 'Clearance'},
+          {name: 'Logistics'}
+        ],
+    };
 
     $scope.register = function(){
         $http.post('/api/register', $scope.user)
@@ -255,11 +255,19 @@ app.controller('DashInstantCtrl', function($scope, $location, dashInstant, dashV
     }
 
     $scope.updateMaps = function() {
-        if($scope.address.start_location.formatted_address) {
-            $scope.address.start_location.name = $scope.address.start_location.formatted_address;
+        if($scope.dashInstant.address.start_location.name.formatted_address) {
+            $scope.dashInstant.address.start_location.lat =
+            $scope.dashInstant.address.start_location.name.geometry.location.lat();
+            $scope.dashInstant.address.start_location.lng =
+            $scope.dashInstant.address.start_location.name.geometry.location.lng();
+            $scope.dashInstant.address.start_location.name = $scope.dashInstant.address.start_location.name.formatted_address;
         }
-        if($scope.address.end_location.formatted_address) {
-            $scope.address.end_location.name = $scope.address.end_location.formatted_address;
+        if($scope.address.end_location.name.formatted_address) {
+            $scope.dashInstant.address.end_location.lat =
+            $scope.dashInstant.address.end_location.name.geometry.location.lat();
+            $scope.dashInstant.address.end_location.lng =
+            $scope.dashInstant.address.end_location.name.geometry.location.lng();
+            $scope.dashInstant.address.end_location.name = $scope.dashInstant.address.end_location.name.formatted_address;
         }
         if($scope.address.pickup1.formatted_address) {
             $scope.address.pickup1.name = $scope.address.pickup1.formatted_address;
@@ -386,7 +394,7 @@ app.controller('NaviAdminCtrl', function($scope, views, $route, admin, $route, $
     $scope.admin = admin;
     // Grab appRoute.js Action Param
     admin.currentView = $route.current.action;
-    
+
 //    $scope.views = views;
 //    // Grab appRoute.js Action Param
 //    views.currentType = $route.current.action.type;
@@ -408,4 +416,3 @@ app.controller('DashDnaviCtrl', function($scope, contractor, $route, $http, $loc
     // Grab appRoute.js Action Param
     contractor.currentView = $route.current.action;
 })
-

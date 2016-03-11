@@ -14,6 +14,9 @@ var userSchema = mongoose.Schema({
     firstname: String,
     lastname: String,
     mobile: String,
+    pk: String,
+    accessToken: String,
+    refreshToken: String
 });
 
 // create the model for users and expose it to our app

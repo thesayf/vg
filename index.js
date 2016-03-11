@@ -13,6 +13,8 @@ var Quote       = require(__dirname + '/server/models/quote');
 var Token       = require(__dirname + '/server/models/token');
 var User        = require(__dirname + '/server/models/user');
 var Contact     = require(__dirname + '/server/models/contact');
+var Driver     = require(__dirname + '/server/models/driver');
+var Staff     = require(__dirname + '/server/models/staff');
 
 // DB configuration ============================================================
 var configDB = require('./config/database.js');
@@ -38,7 +40,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 // routes ==================================================
-require(__dirname + '/server/routes')(app, Quote, Token, User, Contact, needle, rest);
+require(__dirname + '/server/routes')(app, Quote, Token, User, Contact, needle, rest, Driver, Staff);
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));

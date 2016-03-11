@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
 // define the schema for our user model
 var quoteSchema = mongoose.Schema({
+	userID: String,
 	jobName: String,
 	vanType: String,
 	porterQty: String,
